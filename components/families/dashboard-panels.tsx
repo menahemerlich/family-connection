@@ -18,7 +18,7 @@ export function CreateFamilyForm() {
     setErr(null);
     try {
       const id = await createFamily(name);
-      router.push(`/app/family/${id}/chat`);
+      router.push(`/app/family/${id}`);
       router.refresh();
     } catch (e) {
       setErr(e instanceof Error ? e.message : "Error");
@@ -126,7 +126,7 @@ export function FamilyList({
       {families.map((f) => (
         <li key={f.id}>
           <Link
-            href={`/app/family/${f.id}/chat`}
+            href={`/app/family/${f.id}`}
             className="text-sm font-medium text-zinc-900 underline dark:text-zinc-100"
           >
             {f.name}

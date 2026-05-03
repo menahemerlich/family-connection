@@ -20,7 +20,7 @@ function JoinInner() {
     setErr(null);
     try {
       const familyId = await acceptInvitation(token);
-      router.push(`/app/family/${familyId}/chat`);
+      router.push(`/app/family/${familyId}`);
       router.refresh();
     } catch (e) {
       setErr(e instanceof Error ? e.message : t("error"));

@@ -25,24 +25,27 @@ export function AppHeader({
   }
 
   return (
-    <header className="border-b border-zinc-200 bg-white/80 px-4 py-3 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/80">
-      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3">
+    <header className="border-b border-slate-200 bg-white/95 px-4 py-3 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap items-center gap-2">
-          <Link href="/app" className="font-semibold">
+          <Link
+            href="/app"
+            className="font-semibold tracking-tight text-slate-900 underline-offset-4 hover:underline"
+          >
             {t("meta.title")}
           </Link>
-          <span className="hidden text-sm text-zinc-500 sm:inline">{userEmail}</span>
+          <span className="hidden text-sm text-slate-500 sm:inline">{userEmail}</span>
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <label className="flex items-center gap-2 text-sm">
-            <span className="text-zinc-600">{t("family.active")}</span>
+          <label className="flex items-center gap-2 text-sm text-slate-600">
+            <span>{t("family.active")}</span>
             <select
-              className="rounded-md border border-zinc-300 bg-white px-2 py-1 text-sm dark:border-zinc-700 dark:bg-zinc-950"
+              className="rounded-md border border-slate-200 bg-white px-2 py-1 text-sm text-slate-800 shadow-sm"
               value={activeFamilyId ?? ""}
               onChange={(e) => {
                 const id = e.target.value;
                 if (!id) return;
-                router.push(`/app/family/${id}/chat`);
+                router.push(`/app/family/${id}`);
                 router.refresh();
               }}
             >
@@ -58,20 +61,20 @@ export function AppHeader({
           </label>
           <Link
             href="/app/profile"
-            className="rounded-md px-2 py-1 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-900"
+            className="rounded-md px-2 py-1 text-sm text-slate-700 hover:bg-slate-100"
           >
             {t("nav.profile")}
           </Link>
           <Link
             href="/app/notifications"
-            className="rounded-md px-2 py-1 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-900"
+            className="rounded-md px-2 py-1 text-sm text-slate-700 hover:bg-slate-100"
           >
             {t("nav.notifications")}
           </Link>
           <button
             type="button"
             onClick={signOut}
-            className="rounded-md border border-zinc-300 px-3 py-1 text-sm dark:border-zinc-700"
+            className="rounded-md border border-slate-200 bg-white px-3 py-1 text-sm text-slate-800 shadow-sm hover:bg-slate-50"
           >
             {t("nav.signOut")}
           </button>

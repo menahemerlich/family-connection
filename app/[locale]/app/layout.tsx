@@ -55,7 +55,7 @@ export default async function AppLayout({
         families={families}
         activeFamilyId={activeFamilyId}
       />
-      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col px-4 py-6">
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-8">
         {children}
       </main>
     </div>

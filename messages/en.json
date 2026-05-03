@@ -12,6 +12,7 @@
     "gallery": "Gallery",
     "calendar": "Calendar",
     "members": "Members",
+    "hub": "Family home",
     "notifications": "Notifications",
     "createFamily": "New family"
   },
@@ -42,6 +43,22 @@
     "inviteHint": "We'll email a join link to that address.",
     "familyChat": "Family room",
     "yourFamilies": "Your families"
+  },
+  "hub": {
+    "subtitle": "Profile photos, conversations, and quick links to gallery and calendar.",
+    "membersTitle": "Family members",
+    "noMembers": "No members to show.",
+    "openDmWith": "Private chat with {name}",
+    "you": "You",
+    "conversationsTitle": "Your conversations in this family",
+    "noConversations": "No conversations yet.",
+    "unnamedFamily": "Family",
+    "noMessagesYet": "No messages yet",
+    "previewImage": "Photo",
+    "previewVideo": "Video",
+    "previewAudio": "Voice message",
+    "previewAttachment": "Attachment",
+    "dmWith": "With {name}"
   },
   "chat": {
     "placeholder": "Type a message…",

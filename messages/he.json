@@ -12,6 +12,7 @@
     "gallery": "גלריה",
     "calendar": "לוח שנה",
     "members": "חברים",
+    "hub": "בית המשפחה",
     "notifications": "התראות",
     "createFamily": "משפחה חדשה"
   },
@@ -42,6 +43,22 @@
     "inviteHint": "נשלח קישור להצטרפות לאימייל שהזנת.",
     "familyChat": "צ׳אט כללי",
     "yourFamilies": "המשפחות שלך"
+  },
+  "hub": {
+    "subtitle": "תמונות פרופיל, שיחות וגישה מהירה לגלריה וללוח שנה.",
+    "membersTitle": "חברי המשפחה",
+    "noMembers": "אין חברים מוצגים.",
+    "openDmWith": "שיחה פרטית עם {name}",
+    "you": "אני",
+    "conversationsTitle": "השיחות שלך במשפחה זו",
+    "noConversations": "אין שיחות.",
+    "unnamedFamily": "משפחה",
+    "noMessagesYet": "אין הודעות עדיין",
+    "previewImage": "תמונה",
+    "previewVideo": "סרטון",
+    "previewAudio": "הודעה קולית",
+    "previewAttachment": "מדיה",
+    "dmWith": "עם {name}"
   },
   "chat": {
     "placeholder": "כתבו הודעה…",
