@@ -1,0 +1,98 @@
+{
+  "meta": { "title": "Family Connection" },
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "signOut": "Sign out",
+    "profile": "Profile",
+    "chat": "Family chat",
+    "dm": "Direct message",
+    "gallery": "Gallery",
+    "calendar": "Calendar",
+    "members": "Members",
+    "notifications": "Notifications",
+    "createFamily": "New family"
+  },
+  "home": {
+    "tagline": "Stay close — in real time.",
+    "ctaLogin": "Sign in",
+    "ctaDashboard": "My family"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "signInTitle": "Sign in",
+    "signUpTitle": "Create account",
+    "google": "Continue with Google",
+    "noAccount": "No account? Sign up",
+    "hasAccount": "Have an account? Sign in"
+  },
+  "family": {
+    "active": "Active family",
+    "none": "No families yet",
+    "name": "Family name",
+    "create": "Create family",
+    "inviteEmail": "Invitee email",
+    "sendInvite": "Send invite",
+    "inviteHint": "We'll email a join link to that address.",
+    "familyChat": "Family room",
+    "yourFamilies": "Your families"
+  },
+  "chat": {
+    "placeholder": "Type a message…",
+    "send": "Send",
+    "replying": "Replying to",
+    "attachImage": "Photo",
+    "attachVideo": "Short video",
+    "attachAudio": "Voice",
+    "stopRecording": "Stop",
+    "startRecording": "Record",
+    "membersOnline": "Family members",
+    "openDm": "Private chat",
+    "reactions": "Reactions"
+  },
+  "join": {
+    "title": "Join a family",
+    "missingToken": "Invitation link is missing.",
+    "success": "You joined successfully!",
+    "error": "Could not complete join.",
+    "cta": "Complete join",
+    "hintSignIn": "If you are not signed in yet, sign in first then return here."
+  },
+  "gallery": {
+    "albums": "Albums",
+    "newAlbum": "New album",
+    "albumTitle": "Title",
+    "eventTag": "Event type",
+    "upload": "Upload",
+    "openAlbum": "Open"
+  },
+  "calendar": {
+    "title": "Family calendar",
+    "newEvent": "New event",
+    "eventTitle": "Title",
+    "starts": "Starts",
+    "ends": "Ends (optional)",
+    "reminder": "Reminder (minutes before)",
+    "birthdaysThisMonth": "Birthdays this month",
+    "save": "Save",
+    "delete": "Delete"
+  },
+  "profile": {
+    "title": "Profile",
+    "displayName": "Display name",
+    "birthDate": "Birth date",
+    "locale": "Language",
+    "save": "Save"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "globalMute": "Mute all notifications",
+    "muteFamily": "Mute this family",
+    "muteConversation": "Mute this chat",
+    "quietUntil": "Quiet until",
+    "quietHours": "Quiet hours"
+  }
+}

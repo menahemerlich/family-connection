@@ -1,0 +1,98 @@
+{
+  "meta": { "title": "קשר משפחתי" },
+  "nav": {
+    "home": "בית",
+    "dashboard": "לוח בקרה",
+    "signIn": "התחברות",
+    "signUp": "הרשמה",
+    "signOut": "התנתקות",
+    "profile": "פרופיל",
+    "chat": "צ׳אט משפחתי",
+    "dm": "שיחה פרטית",
+    "gallery": "גלריה",
+    "calendar": "לוח שנה",
+    "members": "חברים",
+    "notifications": "התראות",
+    "createFamily": "משפחה חדשה"
+  },
+  "home": {
+    "tagline": "משפחה מחוברת — בזמן אמת.",
+    "ctaLogin": "התחברו",
+    "ctaDashboard": "המשפחה שלי"
+  },
+  "auth": {
+    "email": "אימייל",
+    "password": "סיסמה",
+    "signInTitle": "התחברות",
+    "signUpTitle": "יצירת חשבון",
+    "google": "המשך עם Google",
+    "noAccount": "אין חשבון? הצטרפו",
+    "hasAccount": "כבר יש חשבון? התחברו"
+  },
+  "family": {
+    "active": "משפחה פעילה",
+    "none": "אין עדיין משפחה",
+    "name": "שם המשפחה",
+    "create": "צור משפחה",
+    "inviteEmail": "אימייל מוזמן",
+    "sendInvite": "שלח הזמנה",
+    "inviteHint": "נשלח קישור להצטרפות לאימייל שהזנת.",
+    "familyChat": "צ׳אט כללי",
+    "yourFamilies": "המשפחות שלך"
+  },
+  "chat": {
+    "placeholder": "כתבו הודעה…",
+    "send": "שלח",
+    "replying": "מגיבים ל",
+    "attachImage": "תמונה",
+    "attachVideo": "סרטון קצר",
+    "attachAudio": "הודעה קולית",
+    "stopRecording": "עצור",
+    "startRecording": "הקלטה",
+    "membersOnline": "חברי משפחה",
+    "openDm": "שיחה פרטית",
+    "reactions": "ריאקציות"
+  },
+  "join": {
+    "title": "הצטרפות למשפחה",
+    "missingToken": "חסר קישור הזמנה.",
+    "success": "הצטרפתם בהצלחה!",
+    "error": "לא ניתן להשלים את ההצטרפות.",
+    "cta": "השלם הצטרפות",
+    "hintSignIn": "אם עדיין לא התחברת, היכנסו לחשבון ואז חזרו לדף זה."
+  },
+  "gallery": {
+    "albums": "אלבומים",
+    "newAlbum": "אלבום חדש",
+    "albumTitle": "כותרת",
+    "eventTag": "סוג אירוע",
+    "upload": "העלה",
+    "openAlbum": "פתח"
+  },
+  "calendar": {
+    "title": "לוח שנה משפחתי",
+    "newEvent": "אירוע חדש",
+    "eventTitle": "כותרת",
+    "starts": "התחלה",
+    "ends": "סיום (אופציונלי)",
+    "reminder": "תזכורת (דק׳ לפני)",
+    "birthdaysThisMonth": "ימי הולדת החודש",
+    "save": "שמור",
+    "delete": "מחק"
+  },
+  "profile": {
+    "title": "פרופיל",
+    "displayName": "שם תצוגה",
+    "birthDate": "תאריך לידה",
+    "locale": "שפה",
+    "save": "שמור"
+  },
+  "notifications": {
+    "title": "התראות",
+    "globalMute": "השתקת התראות גלובלית",
+    "muteFamily": "השתק משפחה זו",
+    "muteConversation": "השתק צ׳אט זה",
+    "quietUntil": "שקט עד",
+    "quietHours": "שעות שקט"
+  }
+}
