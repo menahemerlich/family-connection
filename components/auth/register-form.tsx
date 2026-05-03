@@ -1,7 +1,10 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { createClient } from "@/lib/supabase/client";
+import {
+  getGoogleOAuthUrl,
+  signUpWithEmailPassword,
+} from "@/lib/actions/auth";
 import { Link, useRouter } from "@/lib/navigation";
 import { useState } from "react";
 
@@ -12,39 +15,61 @@ export function RegisterForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState<string | null>(null);
+  const [info, setInfo] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setErr(null);
+    setInfo(null);
     setBusy(true);
-    const supabase = createClient();
     const origin = window.location.origin;
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: `${origin}/auth/callback?next=/${locale}/app`,
-      },
-    });
-    setBusy(false);
-    if (error) {
-      setErr(error.message);
-      return;
+
+    try {
+      const res = await signUpWithEmailPassword(email, password, locale, origin);
+
+      if (!res.ok) {
+        setErr(res.message);
+        return;
+      }
+
+      if (res.session) {
+        router.push("/app");
+        router.refresh();
+        return;
+      }
+
+      setInfo(t("auth.confirmEmailHint"));
+    } catch (unknown) {
+      const message =
+        unknown instanceof Error ? unknown.message : String(unknown);
+      if (message.includes("fetch") || message === "Failed to fetch") {
+        setErr(t("auth.networkError"));
+      } else {
+        setErr(message);
+      }
+    } finally {
+      setBusy(false);
     }
-    router.push("/app");
-    router.refresh();
   }
 
   async function google() {
-    const supabase = createClient();
-    const origin = window.location.origin;
-    await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: `${origin}/auth/callback?next=/${locale}/app`,
-      },
-    });
+    setErr(null);
+    setInfo(null);
+    setBusy(true);
+    try {
+      const origin = window.location.origin;
+      const res = await getGoogleOAuthUrl(locale, origin);
+      if (!res.ok || !res.url) {
+        setErr(res.message ?? t("auth.googleConfig"));
+        return;
+      }
+      window.location.assign(res.url);
+    } catch {
+      setErr(t("auth.googleConfig"));
+    } finally {
+      setBusy(false);
+    }
   }
 
   return (
@@ -74,6 +99,11 @@ export function RegisterForm() {
         />
       </label>
       {err && <p className="text-sm text-red-600">{err}</p>}
+      {info && (
+        <p className="rounded-md bg-emerald-50 p-3 text-sm text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-100">
+          {info}
+        </p>
+      )}
       <button
         type="submit"
         disabled={busy}
@@ -83,7 +113,8 @@ export function RegisterForm() {
       </button>
       <button
         type="button"
-        onClick={google}
+        disabled={busy}
+        onClick={() => void google()}
         className="rounded-md border border-zinc-300 py-2 text-sm dark:border-zinc-700"
       >
         {t("auth.google")}

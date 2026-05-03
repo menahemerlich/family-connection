@@ -1,7 +1,10 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { createClient } from "@/lib/supabase/client";
+import {
+  getGoogleOAuthUrl,
+  signInWithEmailPassword,
+} from "@/lib/actions/auth";
 import { Link, useRouter } from "@/lib/navigation";
 import { useState } from "react";
 
@@ -18,29 +21,43 @@ export function LoginForm() {
     e.preventDefault();
     setErr(null);
     setBusy(true);
-    const supabase = createClient();
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-    setBusy(false);
-    if (error) {
-      setErr(error.message);
-      return;
+    try {
+      const res = await signInWithEmailPassword(email, password);
+      if (!res.ok) {
+        setErr(res.message);
+        return;
+      }
+      router.push("/app");
+      router.refresh();
+    } catch (unknown) {
+      const message =
+        unknown instanceof Error ? unknown.message : String(unknown);
+      if (message.includes("fetch") || message === "Failed to fetch") {
+        setErr(t("auth.networkError"));
+      } else {
+        setErr(message);
+      }
+    } finally {
+      setBusy(false);
     }
-    router.push("/app");
-    router.refresh();
   }
 
   async function google() {
-    const supabase = createClient();
-    const origin = window.location.origin;
-    await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: `${origin}/auth/callback?next=/${locale}/app`,
-      },
-    });
+    setErr(null);
+    setBusy(true);
+    try {
+      const origin = window.location.origin;
+      const res = await getGoogleOAuthUrl(locale, origin);
+      if (!res.ok || !res.url) {
+        setErr(res.message ?? t("auth.googleConfig"));
+        return;
+      }
+      window.location.assign(res.url);
+    } catch {
+      setErr(t("auth.googleConfig"));
+    } finally {
+      setBusy(false);
+    }
   }
 
   return (
@@ -78,7 +95,8 @@ export function LoginForm() {
       </button>
       <button
         type="button"
-        onClick={google}
+        disabled={busy}
+        onClick={() => void google()}
         className="rounded-md border border-zinc-300 py-2 text-sm dark:border-zinc-700"
       >
         {t("auth.google")}

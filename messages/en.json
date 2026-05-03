@@ -27,7 +27,10 @@
     "signUpTitle": "Create account",
     "google": "Continue with Google",
     "noAccount": "No account? Sign up",
-    "hasAccount": "Have an account? Sign in"
+    "hasAccount": "Have an account? Sign in",
+    "confirmEmailHint": "We sent a confirmation email. Open the link, then sign in. If email confirmation is off in Supabase, you should be logged in automatically.",
+    "networkError": "Cannot reach the server (network or firewall). Check connection and Supabase URL.",
+    "googleConfig": "If Google fails: Supabase → Authentication → Providers → enable Google and add Client ID/Secret from Google Cloud Console. In Google Cloud → OAuth client → Authorized redirect URIs, add the exact callback URL shown in Supabase for Google (ends with /auth/v1/callback)."
   },
   "family": {
     "active": "Active family",

@@ -10,15 +10,16 @@ export async function createFamily(name: string) {
   } = await supabase.auth.getUser();
   if (!user) throw new Error("Unauthorized");
 
-  const { data, error } = await supabase
-    .from("families")
-    .insert({ name: name.trim(), owner_id: user.id })
-    .select("id")
-    .single();
+  const trimmed = name.trim();
+  if (!trimmed) throw new Error("Name required");
+
+  const { data, error } = await supabase.rpc("create_family_for_user", {
+    p_name: trimmed,
+  });
 
   if (error) throw error;
   revalidatePath("/app");
-  return data.id as string;
+  return data as string;
 }
 
 export async function setActiveFamily(familyId: string | null) {

@@ -27,7 +27,10 @@
     "signUpTitle": "יצירת חשבון",
     "google": "המשך עם Google",
     "noAccount": "אין חשבון? הצטרפו",
-    "hasAccount": "כבר יש חשבון? התחברו"
+    "hasAccount": "כבר יש חשבון? התחברו",
+    "confirmEmailHint": "נשלח אליך מייל לאישור החשבון. לחץ על הקישור במייל ואז התחבר מהדף כניסה. אם לא מופעל אישור מייל בפרויקט — אמור להיכנס אוטומטית.",
+    "networkError": "לא ניתן להתחבר לשרת (רשת או חסימה). בדוק חיבור או הגדרות Supabase.",
+    "googleConfig": "אם Google לא עובד: ב-Supabase → Authentication → Providers → הפעל Google והזן Client ID ו-Secret מ-Google Cloud Console. ב-Google Cloud → Credentials → OAuth → Authorized redirect URIs: הוסף בדיוק את הכתובת שמופיעה ב-Supabase תחת Google provider (מסתיימת ב־/auth/v1/callback)."
   },
   "family": {
     "active": "משפחה פעילה",
